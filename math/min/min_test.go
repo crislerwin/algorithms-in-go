@@ -25,6 +25,21 @@ func getTestCases() []struct {
 
 }
 
+func TestBitwiseMin(t *testing.T) {
+	tests := getTestCases()
+
+	for _, test := range tests {
+		t.Run(test.name, func(t *testing.T) {
+			result := Bitwise(test.base, 999, test.numbers...)
+			if result != test.min {
+				t.Errorf("Wrong result! Expected %d, got %d", test.min, result)
+
+			}
+		})
+
+	}
+}
+
 func TestMin(t *testing.T) {
 	for _, test := range getTestCases() {
 		t.Run(test.name, func(t *testing.T) {
